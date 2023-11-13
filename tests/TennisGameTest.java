@@ -197,5 +197,25 @@ public class TennisGameTest {
 		// Assert
 		assertEquals("Incorrect point calculation", "15 - 30", score);
 	}
-
+	
+	// Task 4 mutant tests
+	
+	@Test
+	public void testTennisGame_MutationTest1() throws TennisGameException {
+		// Arrange
+		TennisGame game = new TennisGame();
+		// Act
+		game.player1Scored();
+		game.player2Scored();
+		game.player2Scored();
+		game.player2Scored();
+		// Act
+		String score = game.getScore();
+		// Assert
+		assertEquals("Incorrect point calculation", "15 - 40", score);
+	}
+	
+	// getScore default value changed to "" because players only have either advantage or deuce after other cases!
+	
+	
 }
